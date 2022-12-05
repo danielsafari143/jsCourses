@@ -11,15 +11,27 @@ function Library(books) {
             <hr>
             `;
       }
+    } else if (arg === null) {
+      localStorage.setItem('datas', JSON.stringify(this.books));
+      document.getElementById('books').innerHTML = '';
+      for (let i = 0; i < JSON.parse(localStorage.getItem('datas')).length; i += 1) {
+        document.getElementById('books').innerHTML += `
+            <h3>${JSON.parse(localStorage.getItem('datas'))[i].author}</h3>
+            <p>${JSON.parse(localStorage.getItem('datas'))[i].title}</p>
+            <button id='remove' onClick='bi.remove(${i})'>Remove</button>
+            <hr>
+            `;
+      }
     } else {
+      localStorage.setItem('datas', JSON.stringify(this.books));
       document.getElementById('books').innerHTML = '';
       for (let i = 0; i < arg.length; i += 1) {
         document.getElementById('books').innerHTML += `
-          <h3>${arg[i].author}</h3>
-          <p>${arg[i].title}</p>
-          <button id='remove' onClick='bi.remove(${i})'>Remove</button>
-          <hr>
-          `;
+            <h3>${arg[i].author}</h3>
+            <p>${arg[i].title}</p>
+            <button id='remove' onClick='bi.remove(${i})'>Remove</button>
+            <hr>
+            `;
       }
     }
   };
