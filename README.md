@@ -61,7 +61,7 @@ After you're finished please remove all the comments and instructions!
 
 > I have built a this project using HTML, CSS and JavaScript .
 
-**[your_project__name]** is a...
+**[your_project__name]** is awesome project
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -84,8 +84,7 @@ After you're finished please remove all the comments and instructions!
 > Describe between 1-3 key features of the application.
 
 - **[js project ]**
-- **[Animated Buttons]**
-- **[Responsive form]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -119,7 +118,7 @@ Example command:
 
 Clone this repository to your desired folder:
 
-**``git clone https://github.com/danielsafari143/portfolio-mobile-layout.git``**
+**``git clone https://github.com/danielsafari143/jsCourses.git``**
 
 
 <!--
