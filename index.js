@@ -3,7 +3,7 @@ function Library(books) {
   this.books = books;
   this.display = function (arg = null) {
     if (arg === null) {
-      for (let i = 0; i < Books.length; i++) {
+      for (let i = 0; i < Books.length; i +=1) {
         document.getElementById('books').innerHTML += `
 					<h3>${this.books[i].author}</h3>
 					<p>${this.books[i].title}</p>
