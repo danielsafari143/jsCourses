@@ -32,9 +32,12 @@ function Library(books) {
   this.add = function add(author, title) {
     const hauteur = document.getElementById(author).value;
     const titre = document.getElementById(title).value;
-
-    this.books.push({ author: hauteur, title: titre });
-    this.display(this.books);
+    if (titre === '' || hauteur === ''){
+      alert('Please complete the form')
+    } else {
+      this.books.push({ author: hauteur, title: titre });
+      this.display(this.books);
+    }
   };
 }
 const bi = new Library(Books);
