@@ -32,8 +32,8 @@ function Library(books) {
   this.add = function add(author, title) {
     const hauteur = document.getElementById(author).value;
     const titre = document.getElementById(title).value;
-    if (titre === '' || hauteur === ''){
-      alert('Please complete the form')
+    if (titre === '' || hauteur === '') {
+      alert('Please complete the form');
     } else {
       this.books.push({ author: hauteur, title: titre });
       this.display(this.books);
