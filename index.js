@@ -1,14 +1,21 @@
-const Books = [];
-function Library(books) {
-  this.books = books;
-  this.display = function display(initialObj, arg) {
+class Library {
+  books;
+
+  constructor() {
+    this.books = [];
+  }
+
+  display(initialObj, arg) {
     if (arg === null && initialObj !== null) {
       for (let i = 0; i < initialObj.length; i += 1) {
         document.getElementById('books').innerHTML += `
-            <h3>${initialObj[i].author}</h3>
-            <p>${initialObj[i].title}</p>
-            <button id='remove' onClick='bi.remove(${i})'>Remove</button>
-            <hr>
+            <li class = "bck">
+              <div class ="main">
+              <p>${initialObj[i].author}</p>
+              <p>by ${initialObj[i].title}</p>
+              </div>
+              <button id='remove' onClick='bi.remove(${i})'>Remove</button>
+            </li>
             `;
       }
     } else if (arg === null) {
@@ -16,10 +23,13 @@ function Library(books) {
       document.getElementById('books').innerHTML = '';
       for (let i = 0; i < JSON.parse(localStorage.getItem('datas')).length; i += 1) {
         document.getElementById('books').innerHTML += `
-            <h3>${JSON.parse(localStorage.getItem('datas'))[i].author}</h3>
-            <p>${JSON.parse(localStorage.getItem('datas'))[i].title}</p>
-            <button id='remove' onClick='bi.remove(${i})'>Remove</button>
-            <hr>
+            <li class = "bck">
+              <div class ="main">
+              <p>${JSON.parse(localStorage.getItem('datas'))[i].author}</p>
+              <p> by ${JSON.parse(localStorage.getItem('datas'))[i].title}</p>
+              </div>
+              <button id='remove' onClick='bi.remove(${i})'>Remove</button>
+            </li>
             `;
       }
     } else {
@@ -27,24 +37,27 @@ function Library(books) {
       document.getElementById('books').innerHTML = '';
       for (let i = 0; i < arg.length; i += 1) {
         document.getElementById('books').innerHTML += `
-            <h3>${arg[i].author}</h3>
-            <p>${arg[i].title}</p>
+        <li class = "bck">
+          <div class ="main">
+            <p>${arg[i].author}</p>
+            <p>by ${arg[i].title}</p>
+            </div>
             <button id='remove' onClick='bi.remove(${i})'>Remove</button>
-            <hr>
+          </li>
             `;
       }
     }
-  };
+  }
 
-  this.remove = function remove(ref) {
+  remove(ref) {
     this.books = JSON.parse(localStorage.getItem('datas'));
     this.books.splice(ref, 1);
     localStorage.setItem('datas', JSON.stringify(this.books));
     this.display(null, JSON.parse(localStorage.getItem('datas')));
     this.books = JSON.parse(localStorage.getItem('datas'));
-  };
+  }
 
-  this.add = function add(author, title) {
+  add(author, title) {
     const hauteur = document.getElementById(author).value;
     const titre = document.getElementById(title).value;
     if (titre !== '' && hauteur !== '') {
@@ -55,7 +68,7 @@ function Library(books) {
       document.getElementById(title).value = '';
       this.display(null, JSON.parse(localStorage.getItem('datas')));
     }
-  };
+  }
 }
-const bi = new Library(Books);
+const bi = new Library();
 bi.display(JSON.parse(localStorage.getItem('datas')), null);

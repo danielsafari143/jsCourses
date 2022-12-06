@@ -7,14 +7,16 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="books">
+	<div class="container">
 		<h1>Awesome books</h1>
-		<div id="books"></div>
+		<div class="boo">
+			<ul id="books" class="bks"></ul>
+		</div>
+		<h3>Add a new book</h3>
+		<input type="text" id="name" name="author">
+		<input type="text" id="title" name="title">
+		<button class="Add" id="add" onclick="bi.add('name' , 'title')">Add</button>
 	</div>
-	
-	<input type="text" id="name" name="author"><br>
-	<br><input type="text" id="title" name="title">
-	<button class="Add" id="add" onclick="bi.add('name' , 'title')">Add</button>
 </body>
 	<script src="index.js"></script>
 </html>
