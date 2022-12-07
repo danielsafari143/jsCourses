@@ -13,7 +13,7 @@ class Library {
     if (arg === null && initialObj !== null) {
       for (let i = 0; i < initialObj.length; i += 1) {
         document.getElementById('books').innerHTML += `
-            <li class = "bck">
+            <li class = "bck" id ="bck">
               <div class ="main">
               <p>${initialObj[i].author}</p>
               <p>by ${initialObj[i].title}</p>
@@ -27,7 +27,7 @@ class Library {
       document.getElementById('books').innerHTML = '';
       for (let i = 0; i < JSON.parse(localStorage.getItem('datas')).length; i += 1) {
         document.getElementById('books').innerHTML += `
-            <li class = "bck">
+            <li class = "bck" id="bck">
               <div class ="main">
               <p>${JSON.parse(localStorage.getItem('datas'))[i].author}</p>
               <p> by ${JSON.parse(localStorage.getItem('datas'))[i].title}</p>
@@ -41,7 +41,7 @@ class Library {
       document.getElementById('books').innerHTML = '';
       for (let i = 0; i < arg.length; i += 1) {
         document.getElementById('books').innerHTML += `
-        <li class = "bck">
+        <li class = "bck" id="bck">
           <div class ="main">
             <p>${arg[i].author}</p>
             <p>by ${arg[i].title}</p>
