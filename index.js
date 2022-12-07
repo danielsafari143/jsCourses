@@ -6,10 +6,14 @@ class Library {
   }
 
   display(initialObj, arg) {
-    const date = new Date();
     document.getElementById('addBook').style.display = 'none';
     document.getElementById('contacts').style.display = 'none';
-    document.getElementById('clock').innerHTML = date;
+
+    setInterval(() => {
+      const date = new Date();
+      document.getElementById('clock').innerHTML = `${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}th ${date.getFullYear()},${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    }, 1000);
+
     if (arg === null && initialObj !== null) {
       for (let i = 0; i < initialObj.length; i += 1) {
         document.getElementById('books').innerHTML += `
