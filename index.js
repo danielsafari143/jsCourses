@@ -6,6 +6,10 @@ class Library {
   }
 
   display(initialObj, arg) {
+    const date = new Date();
+    document.getElementById('addBook').style.display = 'none';
+    document.getElementById('contacts').style.display = 'none';
+    document.getElementById('clock').innerHTML = date;
     if (arg === null && initialObj !== null) {
       for (let i = 0; i < initialObj.length; i += 1) {
         document.getElementById('books').innerHTML += `
@@ -67,8 +71,25 @@ class Library {
       document.getElementById(author).value = '';
       document.getElementById(title).value = '';
       this.display(null, JSON.parse(localStorage.getItem('datas')));
+      document.getElementById('boofirst').style.display = 'flex';
     }
   }
 }
 const bi = new Library();
 bi.display(JSON.parse(localStorage.getItem('datas')), null);
+
+document.getElementById('adds').addEventListener('click', () => {
+  document.getElementById('addBook').style.display = 'flex';
+  document.getElementById('contacts').style.display = 'none';
+  document.getElementById('boofirst').style.display = 'none';
+});
+document.getElementById('list').addEventListener('click', () => {
+  document.getElementById('addBook').style.display = 'none';
+  document.getElementById('contacts').style.display = 'none';
+  document.getElementById('boofirst').style.display = 'flex';
+});
+document.getElementById('contact').addEventListener('click', () => {
+  document.getElementById('addBook').style.display = 'none';
+  document.getElementById('boofirst').style.display = 'none';
+  document.getElementById('contacts').style.display = 'flex';
+});
