@@ -11,7 +11,7 @@ class Library {
 
     setInterval(() => {
       const date = new Date();
-      document.getElementById('clock').innerHTML = `${date.toLocaleString('default', { month: 'long' })} ${date.getDate()}th ${date.getFullYear()},${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+      document.getElementById('clock').innerHTML = `${date.toLocaleString('en', { month: 'long' })} ${date.getDate()}th ${date.getFullYear()},${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     }, 1000);
 
     if (arg === null && initialObj !== null) {
